@@ -3,6 +3,7 @@ AddCSLuaFile()
 ENT.Type 			= "anim"
 ENT.Base 			= "base_gmodentity"
 ENT.PrintName		= "base controller trigger"
+ENT.RenderGroup     = RENDERGROUP_TRANSLUCENT
 
 ENT.Spawnable 		= false
 
@@ -158,8 +159,7 @@ end
 
 if not CLIENT then return end
 
--- Client-side draw function for the Entity
-function ENT:Draw()
+function ENT:DrawTranslucent()
     --self:DrawModel()
     self:SetRenderBounds( self.Mins, self.Maxs )
     render.DrawWireframeBox( self:GetPos(), self:GetAngles(), self.Mins, self.Maxs, self.color, true )
